@@ -1,0 +1,66 @@
+# ====================
+# Arquivos e pastas do Python
+# ====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ====================
+# Virtualenv
+# ====================
+.venv/
+env/
+venv/
+ENV/
+
+# ====================
+# Arquivos de sistema
+# ====================
+.DS_Store
+Thumbs.db
+
+# ====================
+# Logs
+# ====================
+*.log
+
+# ====================
+# Dados grandes (não versionar datasets processados)
+# ====================
+data/interim/
+data/processed/
+data/external/
+
+# Você pode manter o data/raw se quiser versionar o dataset original pequeno
+# Mas se for muito grande (>100MB), melhor não versionar
+
+# ====================
+# Modelos treinados
+# ====================
+models/
+*.pkl
+*.joblib
+*.h5
+*.sav
+
+# ====================
+# Relatórios e figuras gerados
+# ====================
+reports/figures/
+reports/*.html
+
+# ====================
+# Jupyter checkpoints (se algum dia usar)
+# ====================
+.ipynb_checkpoints/
+
+# ====================
+# Configurações locais do VS Code
+# ====================
+.vscode/
