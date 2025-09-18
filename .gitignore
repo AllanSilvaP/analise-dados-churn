@@ -43,7 +43,6 @@ data/external/
 # ====================
 # Modelos treinados
 # ====================
-models/
 *.pkl
 *.joblib
 *.h5
