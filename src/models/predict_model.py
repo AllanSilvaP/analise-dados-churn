@@ -1,9 +1,9 @@
-import pickle
+import joblib
 import pandas as pd
 
 def load_model(path="models/log_reg.pkl"):
     with open(path, "rb") as file:
-        model = pickle.load(file)
+        model = joblib.load(file)
     return model
 
 def predict(model, X):

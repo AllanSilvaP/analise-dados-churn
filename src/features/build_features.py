@@ -1,6 +1,6 @@
 import pandas as pd
 
-def build_features(df):
+def process_data(df):
         ##Binary Enconding - YES AND NO
     columns_to_change = ['Partner', 'Dependents', 'PhoneService', 'PaperlessBilling', 'Churn']
     maping = {'Yes': 1, 'No': 0}
@@ -15,3 +15,5 @@ def build_features(df):
     colums_to_change_onehot = ['MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaymentMethod']
     for column in colums_to_change_onehot:
         df = pd.get_dummies(df, columns=[column], dtype=int)
+    df['Churn'] = df['Churn'].astype(int)
+    return df
