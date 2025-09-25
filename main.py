@@ -7,6 +7,8 @@ from src.models.evaluate_model import evaluate_model
 
 #EXTERNAL
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from imblearn.over_sampling import SMOTE
 
 def main():
     df = load_raw_data()
@@ -19,12 +21,21 @@ def main():
         X, y, test_size=0.2, random_state=42, stratify=y
     )
     
+    # Normalize features
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+    
+    # Handle class imbalance with SMOTE
+    smote = SMOTE(random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
+    
     model_path = "models/log_reg.pkl"
     
     model = train_model(X_train, y_train, save_path=model_path)
     
     model = load_model(model_path)
-    evaluate_model(model, X_test, y_test)
+    evaluate_model(model, X_test, y_test, threshold=0.7)
     
     
 

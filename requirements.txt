@@ -18,3 +18,4 @@ joblib
 
 # Utilidades
 tqdm
+imbalanced-learn
